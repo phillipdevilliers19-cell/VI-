@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff" id="themeColorMeta">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="canonical" href="./">
+  <meta name="apple-mobile-web-app-title" content="Vesco Intelligence">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+  <link rel="manifest" href="manifest.json">
+  <title>Vesco Intelligence</title>
+  <link rel="stylesheet" href="style.css?v=60">
+
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <button class="ava-home-logo" id="avaHomeLogo" type="button" aria-label="Vesconite AVA home">
+      <img src="vesco-intelligence-logo-header.png" alt="Vesco Intelligence">
+    </button>
+    <div class="topbar-actions"><button class="icon-btn" id="themeToggle" type="button" title="Toggle dark theme" aria-label="Toggle dark theme">☾</button><button class="icon-btn" id="backupBtn" title="Backup / restore">↥</button></div>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">VESCONITE ENGINEERING</p>
+          <h1>Real applications.<br><em>Real engineering evidence.</em></h1>
+          <p class="hero-copy">A high-profile library of real-world applications, engineering evidence and customer success stories — built to turn field knowledge into powerful client-facing material.</p>
+        </div>
+        <div class="hero-photo"><img src="vesconite-home.jpg" alt="Vesconite component being machined in a CNC machine" loading="eager" fetchpriority="high"></div>
+      </div>
+
+      <div class="database-hero-grid">
+        <button class="quick-card accent" data-page="library">
+          <span class="q-icon">▣</span><strong>Application Database</strong><small>Search our field-proven applications</small><b>→</b>
+        </button>
+        <button class="quick-card" data-page="add-app">
+          <span class="q-icon">＋</span><strong>Capture Application</strong><small>Add a new customer success story</small><b>→</b>
+        </button>
+      </div>
+      <div class="section-head"><div><span class="eyebrow">AT A GLANCE</span><h2>Internal knowledge</h2></div></div>
+      <div class="stats">
+        <div class="stat"><span id="appCount">0</span><small>Applications saved</small></div>
+        <div class="stat"><span id="industryCount">0</span><small>Industries</small></div>
+        <div class="stat"><span id="photoCount">0</span><small>Photos captured</small></div>
+      </div>
+      <div class="database-intro">
+        <div><span class="eyebrow">THE PURPOSE OF VI</span><h2>Build a database worth showing to customers.</h2><p>Capture the machine, problem, material, environment, installation and outcome. Then turn a selection of proven applications into a polished, client-ready portfolio in one click.</p></div>
+        <div class="database-points"><span>01 · Evidence over claims</span><span>02 · Photos tell the story</span><span>03 · Export meaningful portfolios</span></div>
+      </div>
+      <div class="home-command-grid">
+        <button class="quick-card" data-page="compare"><span class="q-icon">⇄</span><strong>Compare Materials</strong><small>Build a customer-ready comparison</small><b>→</b></button>
+        <button class="quick-card" data-page="knowledge"><span class="q-icon">⌘</span><strong>Knowledge Hub</strong><small>Technical resources and field guidance</small><b>→</b></button>
+      </div>
+      <div class="notice"><span>i</span><div><strong>Internal application database</strong><p>Records are stored in this browser. Use Backup / Restore to move the library between devices. Customer portfolios, comparisons and customer-view edits are temporary and never overwrite the original application.</p></div></div>
+    </section>
+
+    <section id="calculators" class="page hidden-tool">
+      <div class="page-title"><p class="eyebrow">ENGINEERING TOOLS</p><h1>Calculators</h1><p>Metric-first calculators based on Vesconite's published design guidance.</p></div>
+      <div class="calc-grid">
+        <button class="calc-card" data-calc="general"><span>◉</span><div><strong>General Bearing</strong><small>Size, load, speed, PV & fits</small></div><b>→</b></button>
+        <button class="calc-card" data-calc="pump"><span>◌</span><div><strong>Pump Bearing</strong><small>General design + wear ring</small></div><b>→</b></button>
+        <button class="calc-card" data-calc="marine"><span>⌁</span><div><strong>Marine</strong><small>Stern tube & rudder sizing</small></div><b>→</b></button>
+        <button class="calc-card" data-calc="motion"><span>↻</span><div><strong>Motion & PV</strong><small>Rotation, oscillation & linear</small></div><b>→</b></button>
+        <button class="calc-card featured" data-calc="freezer"><span>❄</span><div><strong>Freezer Fit</strong><small>Cooling time & warm-up estimate</small></div><b>→</b></button>
+      </div>
+      <div class="formula-note"><strong>Engineering note</strong><p>These tools are intended for internal preliminary design and application assessment. Where the published Vesconite calculator uses proprietary or unpublished logic, VI labels the result as an estimate rather than presenting it as an exact reproduction.</p></div>
+    </section>
+
+    <section id="calculator-view" class="page hidden-tool">
+      <button class="back" data-page="calculators">← Calculators</button>
+      <div id="calcContent"></div>
+    </section>
+
+    <section id="freezer" class="page hidden-tool">
+      <button class="back" data-page="calculators">← Calculators</button>
+      <div id="freezerContent"></div>
+    </section>
+
+    <section id="discover" class="page discover-page">
+      <div class="page-title discover-heading"><div><p class="eyebrow">EXPLORE VESCONITE</p><h1>Discover</h1><p>Swipe through real Vesconite applications. Tap any story to open the full record.</p></div></div>
+      <div id="discoverReels" class="discover-reels" aria-label="Vesconite application reels"></div>
+    </section>
+
+    <section id="library" class="page">
+      <div class="page-title split"><div><p class="eyebrow">FIELD KNOWLEDGE</p><h1>Application Library</h1><p>Build a searchable internal record of real-world applications.</p></div><button class="primary" data-page="add-app">＋ Add</button></div>
+      <div class="library-tools library-tools-advanced"><input id="librarySearch" placeholder="Search applications, products, tags, customers, notes…"><select id="industryFilter"><option value="">All industries</option></select><select id="productFilter"><option value="">All products</option></select><select id="qualityFilter"><option value="">Any completeness</option><option value="high">High quality</option><option value="medium">Needs detail</option><option value="low">Needs evidence</option></select></div>
+      <div id="libraryChips" class="filter-chips"></div>
+      <div id="libraryList"></div>
+    </section>
+
+    <section id="add-app" class="page">
+      <button class="back" data-page="library">← Application Library</button>
+      <div class="page-title"><p class="eyebrow">CAPTURE KNOWLEDGE</p><h1>Add Application</h1><p>Record the application while the information is fresh.</p></div>
+      <button class="scraper-launch" data-page="scraper"><span>✦</span><div><strong>Import with VI Scraper</strong><small>Automatically build an application from a URL or PDF</small></div><b>→</b></button>
+      <form id="appForm" class="form-card">
+        <label>Application name<input required id="appName" placeholder="e.g. Vertical turbine pump — diffuser bush"></label>
+        <label>Industry<select required id="appIndustry"></select></label>
+        <label>New industry <span class="optional">optional</span><input id="newIndustry" placeholder="If not listed, type it here"></label>
+        <label>Product / material<input id="appProduct" placeholder="e.g. Vesconite Hilube"></label>
+        <label>Application description<textarea required id="appDescription" rows="4" placeholder="What does the bearing do? Where is it used?"></textarea></label>
+        <div class="two-col"><label>Application tags <span class="optional">comma separated</span><input id="appTags" placeholder="wear ring, water, rotary, bronze replacement"></label><label>Customer / OEM <span class="optional">optional</span><input id="appCustomer" placeholder="Customer or OEM name"></label></div>
+        <div class="question-block"><div class="eyebrow">CUSTOMER STORY</div>
+          <label>Customer problem<textarea id="qProblem" rows="3" placeholder="What problem were they experiencing?"></textarea></label>
+          <label>Vesconite solution<textarea id="qSolution" rows="3" placeholder="What was changed and how was Vesconite used?"></textarea></label>
+          <label>Result / proof<textarea id="qProof" rows="3" placeholder="Measured life, wear, downtime, maintenance, customer feedback…"></textarea></label>
+          <label>Customer-safe summary <span class="optional">optional</span><textarea id="qCustomerSummary" rows="3" placeholder="A short version suitable for showing a prospective customer."></textarea></label>
+        </div>
+        <div class="question-block">
+          <div class="eyebrow">COMMON APPLICATION QUESTIONS</div>
+          <label>What was the original material?<input id="qOriginal" placeholder="e.g. bronze, rubber, composite"></label>
+          <label>Why was Vesconite selected?<textarea id="qWhy" rows="3" placeholder="Wear, corrosion, water, lubrication, dimensional stability…"></textarea></label>
+          <label>Operating environment<input id="qEnvironment" placeholder="Water, slurry, dust, marine, chemicals…"></label>
+          <label>Load / movement / speed<input id="qLoad" placeholder="Approximate load, RPM, oscillation, stroke…"></label>
+          <label>Temperature<input id="qTemp" placeholder="Normal / maximum / minimum"></label>
+          <label>Lubrication<input id="qLubrication" placeholder="Dry, water, grease, oil…"></label>
+          <label>Customer / machine / OEM <span class="optional">optional</span><input id="qMachine" placeholder="Machine or equipment"></label>
+          <label>Outcome / evidence<textarea id="qOutcome" rows="3" placeholder="What happened? Service life? Any lessons?"></textarea></label>
+        </div>
+        <label>Application photos <span class="optional">up to 10 photos · each can have a caption</span><input id="appPhoto" type="file" accept="image/*" capture="environment" multiple></label>
+        <div id="photoPreview" class="photo-preview-grid hidden"></div>
+        <label>Recorded by<input id="appAuthor" placeholder="Employee name"></label>
+        <button class="primary wide" type="submit">Save Application</button>
+      </form>
+    </section>
+
+    <section id="oem-references" class="page">
+      <div class="page-title"><p class="eyebrow">PUBLIC DOMAIN SOURCES</p><h1>OEM References</h1><p>Save public-domain OEM references by application and industry. Attach a PDF, add a webpage, or use both.</p></div>
+      <div class="form-card oem-reference-form-card">
+        <form id="oemReferenceForm">
+          <div class="two-col">
+            <label>Application name<input id="oemAppName" required placeholder="e.g. Vertical Turbine Pump"></label>
+            <label>Industry<select id="oemIndustry" name="industry" required aria-label="OEM reference industry">
+              <option value="" disabled selected>Select industry</option>
+              <option value="Agriculture">Agriculture</option>
+              <option value="Construction">Construction</option>
+              <option value="Forestry">Forestry</option>
+              <option value="Hydraulics">Hydraulics</option>
+              <option value="Industrial">Industrial</option>
+              <option value="Marine">Marine</option>
+              <option value="Mining">Mining</option>
+              <option value="Pumps">Pumps</option>
+              <option value="Renewable Energy">Renewable Energy</option>
+              <option value="Transport">Transport</option>
+              <option value="Water &amp; Wastewater">Water &amp; Wastewater</option>
+              <option value="Valves">Valves</option>
+              <option value="Other">Other</option>
+            </select></label>
+          </div>
+          <div class="two-col">
+            <label>OEM / Manufacturer <span class="optional">optional</span><input id="oemManufacturer" name="manufacturer" autocomplete="organization" placeholder="e.g. Flowserve, Sulzer, SKF"></label>
+            <label>Web link <span class="optional">optional</span><input id="oemUrl" type="url" placeholder="https://www.oem.com/application"></label>
+          </div>
+          <label class="file-button oem-pdf-button">Attach PDF <span class="optional">optional</span><input id="oemPdf" type="file" accept="application/pdf,.pdf"></label>
+          <div class="oem-selected-file" id="oemSelectedFile">No PDF attached.</div>
+          <label>Notes <span class="optional">optional</span><textarea id="oemNotes" rows="3" placeholder="What is this reference useful for?"></textarea></label>
+          <div class="form-actions"><button class="primary" type="submit">Save OEM Reference</button></div>
+        </form>
+      </div>
+      <div class="oem-reference-tools"><input id="oemReferenceSearch" placeholder="Search OEM references, applications or industries…"><select id="oemReferenceIndustryFilter"><option value="">All industries</option></select></div>
+      <div id="oemReferenceList" class="oem-reference-list"></div>
+      <div id="oemDetailModal" class="modal-backdrop hidden"><div class="modal-card oem-detail-modal"><button class="modal-close floating-close" id="closeOemDetail" type="button">×</button><div class="eyebrow">OEM PUBLIC REFERENCE</div><h2 id="oemDetailTitle">Reference</h2><div id="oemDetailBody"></div><div class="form-actions" id="oemDetailActions"></div></div></div>
+    </section>
+
+    <section id="scraper" class="page">
+      <button class="back" data-page="add-app">← Add Application</button>
+      <div class="page-title"><p class="eyebrow">AUTOMATED CAPTURE</p><h1>VI Scraper</h1><p>Paste a webpage URL or upload a PDF. VI extracts the application information and images, builds an application record, and adds it to the library.</p></div>
+      <div class="scraper-choice-grid">
+        <button class="scraper-source-card" id="scrapeUrlMode" type="button"><span class="scraper-source-icon">↗</span><strong>Web URL</strong><small>Case study, product page, project page or article</small></button>
+        <label class="scraper-source-card"><span class="scraper-source-icon">PDF</span><strong>PDF document</strong><small>Case study, brochure, report or manual</small><input id="scrapePdf" type="file" accept="application/pdf,.pdf" hidden></label>
+      </div>
+      <div class="form-card scraper-panel">
+        <div id="scrapeUrlPanel">
+          <label>Webpage URL<input id="scrapeUrl" type="url" placeholder="https://www.example.com/application-case-study"></label>
+          <button class="primary wide" id="runUrlScrape" type="button">Extract from URL →</button>
+        </div>
+        <div id="scrapePdfPanel" class="hidden">
+          <div class="scrape-file-row"><div><span class="eyebrow">PDF SELECTED</span><strong id="scrapePdfName">Choose a PDF above</strong><small id="scrapePdfStatus">VI will read the text and render useful PDF pages as application photos.</small></div><button class="secondary" id="runPdfScrape" type="button" disabled>Extract PDF →</button></div>
+        </div>
+      </div>
+      <div id="scrapeProgress" class="scrape-progress hidden"><div class="progress-spinner"></div><div><strong id="scrapeProgressTitle">Reading source…</strong><p id="scrapeProgressText">Extracting application information and images.</p></div></div>
+      <div id="scrapeResult" class="hidden"></div>
+    </section>
+
+
+    <section id="visualiser" class="page visualiser-page">
+      <div class="page-title"><p class="eyebrow">VI DATA INTELLIGENCE</p><h1>Visualiser</h1><p>Turn the application library into vibrant visual dashboards, patterns and industry insights.</p></div>
+      <div id="visualiserKpis" class="visualiser-kpis"></div>
+      <div class="visualiser-grid">
+        <div class="viz-card viz-wide"><div class="viz-head"><div><span class="eyebrow">APPLICATION LANDSCAPE</span><h2>Applications by industry</h2></div></div><div id="industryChart" class="viz-chart"></div></div>
+        <div class="viz-card"><div class="viz-head"><div><span class="eyebrow">MATERIAL MIX</span><h2>Products & materials</h2></div></div><div id="productChart" class="viz-chart"></div></div>
+        <div class="viz-card"><div class="viz-head"><div><span class="eyebrow">EVIDENCE</span><h2>Application quality</h2></div></div><div id="qualityChart" class="viz-donut-wrap"></div></div>
+        <div class="viz-card viz-wide"><div class="viz-head"><div><span class="eyebrow">KNOWLEDGE MAP</span><h2>How VI is growing</h2></div></div><div id="knowledgeVisual" class="knowledge-visual"></div></div>
+      </div>
+    </section>
+
+    <section id="admin" class="page admin-page">
+      <div class="page-title"><p class="eyebrow">SYSTEM MANAGEMENT</p><h1>Admin & Data</h1><p>Manage VI users, roles, permissions, industries and backups. The current build stores these settings locally; proper shared authentication can be connected later.</p></div>
+      <div id="adminStats" class="admin-stats"></div>
+      <div class="admin-grid">
+<div class="form-card admin-users-card"><span class="eyebrow">USERS & ROLES</span><h2>User access</h2><p class="muted">Create users, assign roles and control exactly what each role can do.</p><div class="admin-current-user"><label>Current user<select id="adminCurrentUser"></select></label><span id="adminCurrentUserBadge" class="role-badge"></span></div><div class="user-add-grid"><input id="adminUserName" placeholder="User name"><input id="adminUserEmail" type="email" placeholder="Email"><select id="adminUserRole"></select><button class="primary" id="adminAddUser">Add user</button></div><div id="adminUserList" class="user-admin-list"></div></div>
+<div class="form-card admin-roles-card"><span class="eyebrow">ROLE BUILDER</span><h2>Roles & abilities</h2><p class="muted">Choose a role, then enable or disable individual abilities.</p><div class="role-builder-row"><select id="adminRoleSelect"></select><button class="secondary" id="adminResetRole">Reset role</button></div><div class="role-create-row"><input id="adminNewRole" placeholder="New custom role name"><button class="secondary" id="adminAddRole">Create role</button></div><div id="adminPermissionList" class="permission-list"></div><button class="primary wide" id="adminSaveRole">Save role permissions</button></div>
+        <div class="form-card"><span class="eyebrow">INDUSTRIES</span><h2>Manage industries</h2><p class="muted">Add, rename or remove industry categories. Existing application records are not automatically renamed.</p><div class="admin-industry-add"><input id="adminNewIndustry" placeholder="New industry"><button class="primary" id="adminAddIndustry">Add</button></div><div id="adminIndustryList" class="admin-industry-list"></div></div>
+        <div class="form-card"><span class="eyebrow">BACKUP & RESTORE</span><h2>Protect your data</h2><p class="muted">Export applications and industries before changing devices or browsers.</p><div class="admin-actions"><button class="primary" id="adminExport">Export VI backup</button><label class="secondary file-button">Import VI backup<input id="adminImport" type="file" accept="application/json,.json" hidden></label><button class="secondary" id="adminExportOem">Export OEM references</button></div></div>
+        <div class="form-card admin-danger"><span class="eyebrow">DANGER ZONE</span><h2>Clear application data</h2><p class="muted">Permanently remove the local application library from this browser. Export a backup first.</p><button class="danger-btn" id="adminClearApps">Delete all applications</button></div>
+      </div>
+    </section>
+
+    <section id="app-detail" class="page">
+      <button class="back" data-page="library">← Application Library</button>
+      <div id="appDetail"></div>
+    </section>
+
+    <section id="compare" class="page">
+      <div class="page-title"><p class="eyebrow">SALES ENABLEMENT</p><h1>Material Comparison</h1><p>Build a clean customer-facing comparison from your application evidence.</p></div>
+      <div class="form-card compare-controls"><div class="two-col"><label>Original material<input id="compareOriginal" placeholder="e.g. Bronze"></label><label>Vesconite material<input id="compareVesconite" value="Vesconite / Vesconite Hilube"></label></div><label>What matters to this customer?<input id="compareFocus" placeholder="e.g. water, corrosion, wear, maintenance"></label><button class="primary wide" id="buildComparison">Build Comparison</button></div>
+      <div id="comparisonOutput"></div>
+    </section>
+
+    <section id="knowledge" class="page">
+      <div class="page-title"><p class="eyebrow">KNOWLEDGE HUB</p><h1>Vesconite Knowledge</h1><p>Structured guidance, official resources and internal field knowledge.</p></div>
+      <div class="knowledge-grid" id="knowledgeGrid"></div>
+      <div class="knowledge-note"><strong>Source discipline</strong><p>Official Vesconite technical resources are kept separate from internal application evidence. Do not present an internal estimate as an official published limit.</p></div>
+    </section>
+
+    <section id="backup" class="page">
+      <button class="back" data-page="home">← Home</button>
+      <div class="page-title"><p class="eyebrow">DATA</p><h1>Backup & Restore</h1><p>Move your local application library between devices.</p></div>
+      <div class="form-card">
+        <button class="primary wide" id="exportData">Export library JSON</button>
+        <label class="file-button">Import library JSON<input type="file" id="importData" accept=".json,application/json"></label>
+        <button class="danger wide" id="clearData">Delete all local application records</button>
+        <div class="formula-note"><strong>Important</strong><p>This version uses browser storage so it can be hosted entirely on GitHub Pages. It is not yet a shared multi-user database. A later version can connect this same interface to Supabase/Firebase or another backend.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="linkModal" class="modal-backdrop hidden">
+    <div class="modal">
+      <div class="modal-head">
+        <div><p class="eyebrow">CLIENT PORTFOLIO</p><h2>Build Export Portfolio</h2><p>Select the applications you want included in this PDF. Nothing is permanently linked or changed.</p></div>
+        <button class="modal-close" id="closeLinkModal">×</button>
+      </div>
+      <div class="portfolio-filter-row">
+        <input id="linkSearch" class="modal-search" placeholder="Search applications…">
+        <select id="linkIndustryFilter" class="modal-filter"><option value="">All categories</option></select>
+      </div>
+      <div id="linkList" class="link-list"></div>
+      <div class="modal-footer"><span id="linkCount">0 selected</span><div style="display:flex;gap:8px"><button class="secondary" id="cancelPortfolio">Cancel</button><button class="primary" id="saveLinks">Preview Portfolio</button></div></div>
+    </div>
+  </div>
+
+  <div id="portfolioEditorModal" class="modal-backdrop hidden">
+    <div class="editor-modal">
+      <div class="editor-topbar">
+        <div><p class="eyebrow">CLIENT PORTFOLIO</p><h2>Preview & Edit</h2><p>Everything here is a temporary portfolio draft. Editing it will not change the original applications.</p></div>
+        <button class="modal-close" id="closeEditorModal">×</button>
+      </div>
+      <div class="portfolio-designer">
+        <div class="designer-settings">
+          <div class="setting-group"><label>Customer / company name<input id="portfolioCustomerName" placeholder="e.g. ABC Pumps Ltd"></label><label>Portfolio title<input id="portfolioTitle" value="Vesconite Application Portfolio"></label></div>
+          <div class="setting-group"><label>Cover style<select id="portfolioCoverStyle"><option value="engineering">Engineering</option><option value="clean">Clean</option><option value="dark">Dark Technical</option></select></label><label>Intro text<textarea id="portfolioIntro" rows="2">Proven application experience selected from the Vesco Intelligence database.</textarea></label></div>
+        </div>
+        <div class="editor-actions">
+          <span id="editorStatus">Draft — original application records are untouched</span>
+          <div><button class="secondary" id="backToPortfolio">← Applications</button><button class="primary" id="generatePortfolioPdf">Generate PDF</button></div>
+        </div>
+      </div>
+      <div class="portfolio-workspace"><aside class="portfolio-outline"><div class="outline-head"><strong>PORTFOLIO ORDER</strong><span id="outlineCount"></span></div><div id="portfolioOutline"></div></aside><div id="portfolioEditor" class="portfolio-editor"></div></div>
+    </div>
+  </div>
+
+
+
+  <div id="customerViewModal" class="modal-backdrop hidden"><div class="customer-modal"><button class="modal-close floating-close" id="closeCustomerView">×</button><div id="customerViewBody"></div></div></div>
+
+  <div id="editAppModal" class="modal-backdrop hidden"><div class="modal edit-record-modal"><div class="modal-head"><div><p class="eyebrow">APPLICATION DATABASE</p><h2>Edit Application</h2><p>Changes here update the internal record. Portfolio edits remain separate.</p></div><button class="modal-close" id="closeEditApp">×</button></div><form id="editAppForm" class="edit-record-form"><div class="two-col"><label>Application name<input id="editName" required></label><label>Industry<select id="editIndustry"></select></label></div><div class="two-col"><label>Product / material<input id="editProduct"></label><label>Customer / OEM<input id="editCustomer"></label></div><label>Tags<input id="editTags"></label><label>Description<textarea id="editDescription" rows="4"></textarea></label><div class="two-col"><label>Original material<input id="editOriginal"></label><label>Environment<input id="editEnvironment"></label></div><div class="two-col"><label>Load / movement / speed<input id="editLoad"></label><label>Temperature<input id="editTemp"></label></div><div class="two-col"><label>Lubrication<input id="editLubrication"></label><label>Machine / OEM<input id="editMachine"></label></div><label>Why Vesconite?<textarea id="editWhy" rows="3"></textarea></label><label>Outcome / evidence<textarea id="editOutcome" rows="3"></textarea></label><div class="two-col"><label>Customer problem<textarea id="editProblem" rows="3"></textarea></label><label>Vesconite solution<textarea id="editSolution" rows="3"></textarea></label></div><label>Result / proof<textarea id="editProof" rows="3"></textarea></label><label>Customer-safe summary<textarea id="editCustomerSummary" rows="3"></textarea></label><label>Recorded by<input id="editAuthor"></label><div class="form-actions"><button type="button" class="secondary" id="cancelEditRecord">Cancel</button><button class="primary" type="submit">Save Record</button></div></form></div></div>
+
+  <div id="moreMenu" class="more-menu" aria-hidden="true">
+    <button class="more-menu-item" data-page="oem-references" data-permission="oem.view"><span>◫</span><div><strong>OEM Public</strong><small>Public OEM references</small></div></button>
+    <button class="more-menu-item" data-page="visualiser" data-permission="visualiser.view"><span>◈</span><div><strong>Visualiser</strong><small>Application and industry insights</small></div></button>
+    <button class="more-menu-item" data-page="admin" data-permission-any="users.manage,industries.manage,data.export,data.import"><span>⚙</span><div><strong>Admin</strong><small>Users, roles and data</small></div></button>
+    <button class="more-menu-item" data-page="add-app" data-permission="applications.create"><span>＋</span><div><strong>Add Application</strong><small>Create a new record</small></div></button>
+  </div>
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-page="home"><span>⌂</span>Home</button>
+    <button class="nav-item" data-page="discover"><span>◉</span>Discover</button>
+    <button class="nav-item" data-page="library"><span>▣</span>Library</button>
+    <button class="nav-item" data-page="scraper" data-permission="scrape"><span>✦</span>Scraper</button>
+    <button class="nav-item more-nav" id="moreNav" type="button"><span>•••</span>More</button>
+  </nav>
+</div>
+<div id="qrModal" class="modal-backdrop hidden"><div class="qr-modal"><button class="modal-close floating-close" id="closeQrModal">×</button><div class="eyebrow">VI APPLICATION QR</div><h2 id="qrTitle">Application</h2><p id="qrSubtitle">Scan to open this application directly in Vesco Intelligence.</p><div id="qrCode" class="qr-code-box"></div><div class="qr-url" id="qrUrl"></div><div class="qr-actions"><button class="secondary" id="copyQrUrl" type="button">Copy link</button><button class="primary" id="downloadQr" type="button">Download QR</button></div><p class="qr-note">Use this on drawings, samples, internal documents or customer-facing material. The QR opens the application record in Vesco Intelligence.</p></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="core.js?v=60"></script><script src="app.js?v=60"></script>
+
+
+
+</body>
+</html>
+

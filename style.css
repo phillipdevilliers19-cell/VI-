@@ -889,3 +889,38 @@ body:not(.dark-theme) .app-main{color:#18262d!important}
 .edit-photo-count{font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.2px;}
 .edit-photo-input{position:absolute !important;left:-10000px !important;top:auto !important;width:1px !important;height:1px !important;opacity:0 !important;}
 @media(max-width:760px){.edit-photo-button{min-height:46px;padding:12px 15px !important}.edit-photo-count{width:100%;}}
+
+
+/* V66 — final consolidated bug fixes. These rules intentionally come last. */
+.modal-backdrop{z-index:5000 !important;}
+.customer-modal,.qr-modal,.modal{z-index:5001 !important;}
+.customer-modal{max-height:calc(100dvh - 24px) !important;overflow-y:auto !important;}
+.customer-sheet{padding:56px 34px 34px !important;}
+.customer-sheet h1{max-width:100% !important;overflow-wrap:anywhere !important;}
+.qr-fallback-image{display:block !important;width:220px !important;height:220px !important;image-rendering:pixelated !important;}
+.edit-photo-actions{display:flex !important;align-items:center !important;gap:10px !important;flex-wrap:wrap !important;margin:8px 0 14px !important;}
+.edit-photo-button{position:relative !important;overflow:hidden !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;min-height:46px !important;cursor:pointer !important;}
+.edit-photo-input{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;opacity:0 !important;cursor:pointer !important;left:0 !important;top:0 !important;}
+/* Header: opaque, crisp, and anchored to the lower part of the header. */
+.topbar{backdrop-filter:none !important;-webkit-backdrop-filter:none !important;}
+.topbar .topbar-actions{top:auto !important;bottom:10px !important;transform:none !important;}
+.topbar .ava-home-logo{top:auto !important;bottom:7px !important;}
+@media(max-width:760px){
+  .topbar{height:calc(92px + env(safe-area-inset-top)) !important;min-height:calc(92px + env(safe-area-inset-top)) !important;padding:env(safe-area-inset-top) 12px 0 !important;background:rgba(255,255,255,.98) !important;}
+  .topbar .topbar-actions{right:12px !important;top:auto !important;bottom:8px !important;transform:none !important;gap:7px !important;}
+  .topbar .ava-home-logo{left:12px !important;top:auto !important;bottom:7px !important;width:170px !important;height:58px !important;}
+  .topbar .ava-home-logo img{width:150px !important;height:auto !important;max-height:52px !important;filter:none !important;-webkit-filter:none !important;opacity:1 !important;}
+  body.dark-theme .topbar{background:rgba(7,16,24,.98) !important;}
+  .customer-modal{max-height:calc(100dvh - 18px) !important;border-radius:18px !important;}
+  .customer-sheet{padding:60px 20px 30px !important;}
+  .customer-sheet h1{font-size:30px !important;line-height:1.08 !important;margin:8px 0 12px !important;}
+  .customer-facts{grid-template-columns:1fr 1fr !important;}
+  .qr-modal{max-height:calc(100dvh - 24px) !important;overflow:auto !important;}
+}
+body:not(.dark-theme) #libraryList .app-item h3{color:#17262d !important;font-weight:800 !important;}
+body:not(.dark-theme) #libraryList .app-item p{color:#445860 !important;}
+body:not(.dark-theme) #libraryList .app-meta{color:#52656d !important;}
+
+/* V66 — explicit edit photo buttons */
+#editTakePhoto,#editChoosePhoto{position:absolute !important;width:1px !important;height:1px !important;opacity:0 !important;pointer-events:none !important;}
+#editTakePhotoBtn,#editChoosePhotoBtn{position:relative !important;min-height:46px !important;cursor:pointer !important;}

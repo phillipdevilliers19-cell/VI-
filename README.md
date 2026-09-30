@@ -1,23 +1,34 @@
-# Vesco Intelligence (VI) Internal — V65
+# Vesco Intelligence (VI) Internal — V66
 
-## V65 — Edit photos + mobile header controls
+## V66 — consolidated application stability fix
 
-### Edit Application
-- Open a saved application and choose **Edit record**.
-- The edit form has an explicit **＋ Add photo / camera** button. It does not rely on tapping a hidden file-input label.
-- On iPhone, tapping the button opens the camera/photo picker.
-- Existing photos remain visible in the editor.
-- Add up to 10 photos total, edit captions, remove individual photos, then **Save Record**.
-- Saving writes the updated photo list back to the same application record.
+This release consolidates the current application/navigation/photo/modal regressions into one controlled build.
 
-### Mobile header
-- The **light/dark theme** and **Backup / Export** controls are moved lower so they sit below the iPhone status/safe-area region.
+### Fixed in V66
+- **Library:** explicitly re-renders whenever the Library page opens, so records do not disappear after direct navigation.
+- **Discover:** uses the same application store as Library and refreshes when application data changes.
+- **Edit photos:** uses native iPhone controls for **Take photo** and **Choose photos**. Photos can be added repeatedly up to 10, previewed, captioned, removed and saved to the same application.
+- **Customer View:** moved above the sticky header with safe-area spacing; application headings are no longer hidden behind the VI header.
+- **QR Code:** modal now sits above the header. QR generation has a library path plus an online image fallback and always exposes the application URL.
+- **Header controls:** theme and Backup/Export are anchored to the bottom of the header, below the iPhone status/safe-area region. The header no longer uses backdrop blur, so the VI logo is not blurred.
+- **Application save:** refreshes Library, Discover and Visualiser immediately.
 
-### GitHub Pages
-Upload the contents of this package directly into the root of the `main` branch. Do not put the files inside a folder.
+### Fresh repository upload
+Upload the contents of this package directly into the **root** of the `main` branch. Do not place the files in a subfolder.
 
-Expected root files include `index.html`, `vi-v65.html`, `manifest.json`, `app.js`, `core.js`, `style.css`, `404.html`, `README.md` and the image/icon assets.
+Expected root files: `index.html`, `vi-v66.html`, `manifest.json`, `app.js`, `core.js`, `style.css`, `404.html`, `README.md` plus the image/icon assets.
 
-Enable Pages with **Settings → Pages → Deploy from a branch → main → /(root)**.
+Enable GitHub Pages with **Settings → Pages → Deploy from a branch → main → /(root)**.
 
-After deployment, open the normal Pages URL in Safari. In Library, open an application → **Edit record** → **＋ Add photo / camera** → take/select a photo → **Save Record** → reopen the application and confirm the photo remains.
+### Verification sequence
+1. Open the GitHub Pages URL in Safari.
+2. Click **Library** directly and verify existing application records are visible.
+3. Open an application → **Edit record** → **Take photo** or **Choose photos** → verify the photo preview → **Save Record** → reopen the application.
+4. Open **Customer View** and verify the title is fully visible.
+5. Open **QR Code** and verify the QR/link modal.
+6. Toggle light/dark and verify the controls remain below the status area.
+7. Open **Discover** and verify the same application appears in the reels feed.
+
+
+### Important stability correction
+The application-save path now treats localStorage as the source of truth and isolates UI refresh errors, so a visualiser/rendering fault cannot make a successfully stored application appear unsaved.

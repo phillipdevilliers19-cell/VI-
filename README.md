@@ -1,40 +1,22 @@
-# Vesco Intelligence (VI) — V61
+# Vesco Intelligence (VI) Internal — V63
 
-## V61 UI + navigation repair
-This release is for the clean GitHub Pages repository. It retains the V60 application library, scraper, OEM references, Visualiser and Admin functionality while repairing the global navigation and mobile header controls.
+## V63 application feed and photo-save release
 
-## Upload
-Upload the **contents of this folder/ZIP directly into the root of the `main` branch**. Replace the existing files. Do not put them inside another folder.
+This release fixes three application-library issues:
 
-The root should contain:
+- **Discover now includes every application saved in the Library**, not only records with a stored photo.
+- **Discover is a true vertical reels feed** with one application per snap/scroll position, full-height presentation on mobile, and tap-through to the application record. Applications without a photo get a clear VI placeholder until a photo is added.
+- **Camera/photo saving is more resilient**: photos are converted to compressed JPEG data before storage, with an adaptive size target to avoid browser local-storage quota problems. Saved data is verified immediately after writing.
+- **Library text contrast is darker in light mode** so application titles, descriptions and metadata are easier to read.
 
-- `index.html`
-- `vi-v61.html`
-- `manifest.json`
-- `app.js`
-- `core.js`
-- `style.css`
-- `404.html`
-- `README.md`
-- `apple-touch-icon.png`
-- `icon-192.png`
-- `icon-512.png`
+The existing localStorage application database is preserved. No existing application records are intentionally deleted by this release.
 
-## What was repaired
-- Bottom navigation now uses a single delegated click handler, so Home, Discover, Library, Scraper and More respond reliably.
-- More-menu items use the same navigation system and close the menu after navigation.
-- Header theme and Backup controls are positioned inside the fixed header safe area instead of floating against the iPhone status-bar region.
-- The header no longer uses backdrop blur.
-- The supplied Vesco Intelligence logo remains unchanged; it is rendered at a controlled size without filters or blur.
-- CSS and JavaScript references are V61-cache-busted.
-- Manifest, canonical launch file and 404 fallback all point to `vi-v61.html`.
+## GitHub Pages
 
-## First test
-After GitHub Pages finishes deploying, open the exact page ending in `/vi-v61.html`. For a repository named `vesco-intelligence`:
+Upload the contents of this package directly into the root of the `main` branch. Do not place the files inside another folder.
 
-`https://phillipdevilliers19-cell.github.io/vesco-intelligence/vi-v61.html`
+Expected root files include `index.html`, `vi-v63.html`, `manifest.json`, `app.js`, `core.js`, `style.css`, `404.html`, and the image/icon assets.
 
-Test the bottom navigation, theme toggle and Backup button in Safari first. Only after these work should the page be added to the iPhone Home Screen.
+Enable GitHub Pages from **Settings → Pages → Deploy from a branch → main → /(root)**.
 
-## Data
-Application data remains browser-local in this release. Use Backup / Restore when moving data between browsers or devices.
+After the Pages deployment is green, open the normal Pages URL in Safari first. Then test `vi-v63.html` and only after that create/update the iPhone Home Screen app.

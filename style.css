@@ -742,7 +742,7 @@ body:not(.dark-theme) .portfolio-strip{background:#f0f8f6!important;border-color
 body:not(.dark-theme) .bottom-nav{background:rgba(255,255,255,.96)!important;border-color:var(--line)!important}
 body:not(.dark-theme) .oem-reference-card:hover{border-color:#a8cbc3!important}
 
-/* V61 — authoritative mobile header/control and logo treatment */
+/* V61/V62 — authoritative mobile header/control and logo treatment */
 .topbar{
   position:fixed !important;
   top:0 !important;
@@ -783,8 +783,8 @@ body:not(.dark-theme) .oem-reference-card:hover{border-color:#a8cbc3!important}
   overflow:visible !important;
 }
 .ava-home-logo img{
-  width:150px !important;
-  height:62px !important;
+  width:180px !important;
+  height:60px !important;
   max-width:none !important;
   max-height:none !important;
   object-fit:contain !important;
@@ -797,7 +797,7 @@ body:not(.dark-theme) .oem-reference-card:hover{border-color:#a8cbc3!important}
 .topbar-actions{
   position:absolute !important;
   right:18px !important;
-  top:50% !important;
+  top:calc(50% + 9px) !important;
   transform:translateY(-50%) !important;
   display:flex !important;
   align-items:center !important;
@@ -829,16 +829,41 @@ body:not(.dark-theme) .oem-reference-card:hover{border-color:#a8cbc3!important}
   }
   .app-shell{padding-top:calc(92px + env(safe-area-inset-top)) !important}
   .ava-home-logo{
-    top:calc(env(safe-area-inset-top) + 46px) !important;
+    top:calc(env(safe-area-inset-top) + 55px) !important;
     width:170px !important;
     height:66px !important;
   }
   .ava-home-logo img{width:150px !important;height:62px !important}
   .topbar-actions{
     right:12px !important;
-    top:calc(env(safe-area-inset-top) + 46px) !important;
+    top:calc(env(safe-area-inset-top) + 55px) !important;
     transform:translateY(-50%) !important;
     gap:6px !important;
   }
   .topbar-actions .icon-btn{width:40px !important;height:40px !important;min-width:40px !important;min-height:40px !important}
 }
+
+
+/* V62 — final header control positioning and high-DPI logo */
+.topbar-actions{top:calc(50% + 9px) !important;}
+.ava-home-logo img{width:180px !important;height:60px !important;max-width:none !important;max-height:none !important;object-fit:contain !important;filter:none !important;}
+@media(max-width:760px){
+  .topbar-actions{top:calc(env(safe-area-inset-top) + 55px) !important;}
+  .topbar-actions .icon-btn{width:40px !important;height:40px !important;}
+  .ava-home-logo{width:196px !important;height:64px !important;}
+  .ava-home-logo img{width:180px !important;height:60px !important;}
+}
+
+/* V63 — application library contrast + true reels feed + resilient photo capture */
+body:not(.dark-theme) .app-item h3{color:#17262d!important;font-weight:800!important}
+body:not(.dark-theme) .app-item p{color:#445860!important}
+body:not(.dark-theme) .app-meta{color:#52656d!important}
+body:not(.dark-theme) .app-main{color:#18262d!important}
+.discover-reels{height:calc(100svh - 178px);max-height:none;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;scroll-behavior:smooth;overscroll-behavior-y:contain;gap:14px;padding:0 2px 14px;scrollbar-width:none}
+.discover-reels::-webkit-scrollbar{display:none}
+.discover-reel{height:100%;min-height:100%;max-height:none;scroll-snap-align:start;scroll-snap-stop:always;flex:0 0 100%}
+.discover-reel>img,.discover-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.discover-fallback{display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,#195448 0,#0d2527 42%,#071018 100%);color:#fff}
+.discover-fallback-mark{font:800 92px/1 Montserrat,Arial,sans-serif;letter-spacing:-7px;color:#54e1bd;opacity:.92}
+.discover-fallback-industry{margin-top:18px;padding:8px 12px;border:1px solid rgba(255,255,255,.22);border-radius:999px;font-size:10px;font-weight:800;letter-spacing:1.5px}
+@media(max-width:760px){.discover-reels{height:calc(100svh - 166px);gap:10px;padding-bottom:10px}.discover-reel{border-radius:14px}.discover-fallback-mark{font-size:82px}}

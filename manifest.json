@@ -1,8 +1,8 @@
 {
   "name": "Vesco Intelligence",
   "short_name": "Vesco Intelligence",
-  "id": "./vi-v64.html",
-  "start_url": "./vi-v64.html",
+  "id": "./vi-v65.html",
+  "start_url": "./vi-v65.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#626365",

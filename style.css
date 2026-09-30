@@ -874,5 +874,18 @@ body:not(.dark-theme) .app-main{color:#18262d!important}
 .discover-fallback-industry{margin-top:18px;padding:8px 12px;border:1px solid rgba(255,255,255,.22);border-radius:999px;font-size:10px;font-weight:800;letter-spacing:1.5px}
 @media(max-width:760px){.discover-reels{height:calc(100svh - 166px);gap:10px;padding-bottom:10px}.discover-reel{border-radius:14px}.discover-fallback-mark{font-size:82px}}
 
-/* V64 edit-photo release */
+/* V65 edit-photo release */
 .edit-photo-section .photo-preview-grid{margin-top:4px}
+
+/* V65 — definitive mobile header positioning: controls sit below the iPhone safe-area/status region. */
+.topbar .topbar-actions{top:calc(50% + 18px) !important;}
+@media(max-width:760px){
+  .topbar .topbar-actions{top:calc(env(safe-area-inset-top) + 72px) !important;}
+}
+
+/* V65 — explicit edit-photo control for iPhone/Safari. */
+.edit-photo-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 12px;}
+.edit-photo-button{width:auto !important;margin:0 !important;display:inline-flex !important;align-items:center;justify-content:center;min-height:44px;cursor:pointer;}
+.edit-photo-count{font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.2px;}
+.edit-photo-input{position:absolute !important;left:-10000px !important;top:auto !important;width:1px !important;height:1px !important;opacity:0 !important;}
+@media(max-width:760px){.edit-photo-button{min-height:46px;padding:12px 15px !important}.edit-photo-count{width:100%;}}

@@ -1,23 +1,23 @@
-# Vesco Intelligence (VI) Internal — V64
+# Vesco Intelligence (VI) Internal — V65
 
-## V64 application editing and photo release
+## V65 — Edit photos + mobile header controls
 
-This release adds photo management directly to **Edit Application**.
+### Edit Application
+- Open a saved application and choose **Edit record**.
+- The edit form has an explicit **＋ Add photo / camera** button. It does not rely on tapping a hidden file-input label.
+- On iPhone, tapping the button opens the camera/photo picker.
+- Existing photos remain visible in the editor.
+- Add up to 10 photos total, edit captions, remove individual photos, then **Save Record**.
+- Saving writes the updated photo list back to the same application record.
 
-- Open any saved application and choose **Edit record**.
-- Existing application photos are shown in the edit form.
-- **＋ Add photo / camera** lets you take a new photo or select photos from the device.
-- New photos are compressed using the same storage-safe process as the Add Application flow.
-- Individual photos can be removed and captions can be edited before saving.
-- Saving the record writes the updated photo list back to the same application record without changing its ID or existing non-photo data.
-- The Discover feed continues to read directly from the Library application database.
+### Mobile header
+- The **light/dark theme** and **Backup / Export** controls are moved lower so they sit below the iPhone status/safe-area region.
 
-## GitHub Pages
+### GitHub Pages
+Upload the contents of this package directly into the root of the `main` branch. Do not put the files inside a folder.
 
-Upload the contents of this package directly into the root of the **main** branch. Do not place them inside another folder.
+Expected root files include `index.html`, `vi-v65.html`, `manifest.json`, `app.js`, `core.js`, `style.css`, `404.html`, `README.md` and the image/icon assets.
 
-Expected root files include `index.html`, `vi-v64.html`, `manifest.json`, `app.js`, `core.js`, `style.css`, `404.html`, `README.md`, and the image/icon assets.
+Enable Pages with **Settings → Pages → Deploy from a branch → main → /(root)**.
 
-Enable GitHub Pages from **Settings → Pages → Deploy from a branch → main → /(root)**.
-
-After the Pages deployment is green, open the normal Pages URL in Safari first. Check the Library, open a saved application, select **Edit record**, add a camera photo, save, and reopen the application to confirm the photo remains.
+After deployment, open the normal Pages URL in Safari. In Library, open an application → **Edit record** → **＋ Add photo / camera** → take/select a photo → **Save Record** → reopen the application and confirm the photo remains.

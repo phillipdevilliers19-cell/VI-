@@ -35,3 +35,4 @@ Confirm that this page visibly shows the V60 application. Only then use Safari â
 
 ## Data
 Application data remains browser-local in this release. Use Backup / Restore when moving data between devices.
+V60 deployment test

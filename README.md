@@ -1,10 +1,10 @@
-# Vesco Intelligence (VI) Internal — V66
+# Vesco Intelligence (VI) Internal — V67
 
-## V66 — consolidated application stability fix
+## V67 — consolidated application stability fix
 
 This release consolidates the current application/navigation/photo/modal regressions into one controlled build.
 
-### Fixed in V66
+### Fixed in V67
 - **Library:** explicitly re-renders whenever the Library page opens, so records do not disappear after direct navigation.
 - **Discover:** uses the same application store as Library and refreshes when application data changes.
 - **Edit photos:** uses native iPhone controls for **Take photo** and **Choose photos**. Photos can be added repeatedly up to 10, previewed, captioned, removed and saved to the same application.
@@ -16,7 +16,7 @@ This release consolidates the current application/navigation/photo/modal regress
 ### Fresh repository upload
 Upload the contents of this package directly into the **root** of the `main` branch. Do not place the files in a subfolder.
 
-Expected root files: `index.html`, `vi-v66.html`, `manifest.json`, `app.js`, `core.js`, `style.css`, `404.html`, `README.md` plus the image/icon assets.
+Expected root files: `index.html`, `vi-v67.html`, `manifest.json`, `app.js`, `core.js`, `style.css`, `404.html`, `README.md` plus the image/icon assets.
 
 Enable GitHub Pages with **Settings → Pages → Deploy from a branch → main → /(root)**.
 
@@ -32,3 +32,21 @@ Enable GitHub Pages with **Settings → Pages → Deploy from a branch → main 
 
 ### Important stability correction
 The application-save path now treats localStorage as the source of truth and isolates UI refresh errors, so a visualiser/rendering fault cannot make a successfully stored application appear unsaved.
+
+
+## V67 verification / regression corrections
+- Restored the original centred VI header-logo positioning; no logo repositioning change is made in this release.
+- Library application actions use one delegated click path, so Edit record, Customer View, Compare, QR Code, portfolio and delete actions are not dependent on inline handlers in dynamically rendered cards.
+- Edit Application photo controls use native iPhone `<label for=file>` activation for Take photo and Choose photos.
+- Customer View is laid out below the fixed header/safe-area and has its own scrollable viewport.
+- Library light-theme application name, description and metadata use explicit dark colours.
+- V67 keeps the same application storage keys and data format.
+
+### V67 test order
+1. Open the normal GitHub Pages URL.
+2. Library → open application → Edit record.
+3. Confirm edit form opens, then test Take photo / Choose photos.
+4. Cancel or save the edit and reopen the application.
+5. Test Customer View and QR Code.
+6. Toggle light/dark mode.
+7. Check Discover and bottom navigation.

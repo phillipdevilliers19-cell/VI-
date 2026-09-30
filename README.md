@@ -1,22 +1,23 @@
-# Vesco Intelligence (VI) Internal — V63
+# Vesco Intelligence (VI) Internal — V64
 
-## V63 application feed and photo-save release
+## V64 application editing and photo release
 
-This release fixes three application-library issues:
+This release adds photo management directly to **Edit Application**.
 
-- **Discover now includes every application saved in the Library**, not only records with a stored photo.
-- **Discover is a true vertical reels feed** with one application per snap/scroll position, full-height presentation on mobile, and tap-through to the application record. Applications without a photo get a clear VI placeholder until a photo is added.
-- **Camera/photo saving is more resilient**: photos are converted to compressed JPEG data before storage, with an adaptive size target to avoid browser local-storage quota problems. Saved data is verified immediately after writing.
-- **Library text contrast is darker in light mode** so application titles, descriptions and metadata are easier to read.
-
-The existing localStorage application database is preserved. No existing application records are intentionally deleted by this release.
+- Open any saved application and choose **Edit record**.
+- Existing application photos are shown in the edit form.
+- **＋ Add photo / camera** lets you take a new photo or select photos from the device.
+- New photos are compressed using the same storage-safe process as the Add Application flow.
+- Individual photos can be removed and captions can be edited before saving.
+- Saving the record writes the updated photo list back to the same application record without changing its ID or existing non-photo data.
+- The Discover feed continues to read directly from the Library application database.
 
 ## GitHub Pages
 
-Upload the contents of this package directly into the root of the `main` branch. Do not place the files inside another folder.
+Upload the contents of this package directly into the root of the **main** branch. Do not place them inside another folder.
 
-Expected root files include `index.html`, `vi-v63.html`, `manifest.json`, `app.js`, `core.js`, `style.css`, `404.html`, and the image/icon assets.
+Expected root files include `index.html`, `vi-v64.html`, `manifest.json`, `app.js`, `core.js`, `style.css`, `404.html`, `README.md`, and the image/icon assets.
 
 Enable GitHub Pages from **Settings → Pages → Deploy from a branch → main → /(root)**.
 
-After the Pages deployment is green, open the normal Pages URL in Safari first. Then test `vi-v63.html` and only after that create/update the iPhone Home Screen app.
+After the Pages deployment is green, open the normal Pages URL in Safari first. Check the Library, open a saved application, select **Edit record**, add a camera photo, save, and reopen the application to confirm the photo remains.

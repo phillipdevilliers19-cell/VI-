@@ -1,38 +1,40 @@
-# Vesco Intelligence (VI) — V60
+# Vesco Intelligence (VI) — V61
 
-## Fresh GitHub Pages release
-This is the V60 release prepared for a **new, clean GitHub repository**. It is deliberately **repository-name independent**: the app uses relative URLs instead of the old `/test/` path.
+## V61 UI + navigation repair
+This release is for the clean GitHub Pages repository. It retains the V60 application library, scraper, OEM references, Visualiser and Admin functionality while repairing the global navigation and mobile header controls.
 
 ## Upload
-Upload the **contents of this ZIP directly into the root of the `main` branch**. Do not upload the ZIP file itself and do not place the files inside another folder.
+Upload the **contents of this folder/ZIP directly into the root of the `main` branch**. Replace the existing files. Do not put them inside another folder.
 
-The repository root must contain at least:
+The root should contain:
 
 - `index.html`
-- `vi-v60.html`
+- `vi-v61.html`
 - `manifest.json`
 - `app.js`
 - `core.js`
 - `style.css`
 - `404.html`
+- `README.md`
 - `apple-touch-icon.png`
 - `icon-192.png`
 - `icon-512.png`
 
-## First test — BEFORE adding Home Screen
-Once GitHub Pages is enabled and the site is live, open the **exact GitHub Pages URL ending in `/vi-v60.html`**. For example, if the repository is named `vesco-intelligence`:
+## What was repaired
+- Bottom navigation now uses a single delegated click handler, so Home, Discover, Library, Scraper and More respond reliably.
+- More-menu items use the same navigation system and close the menu after navigation.
+- Header theme and Backup controls are positioned inside the fixed header safe area instead of floating against the iPhone status-bar region.
+- The header no longer uses backdrop blur.
+- The supplied Vesco Intelligence logo remains unchanged; it is rendered at a controlled size without filters or blur.
+- CSS and JavaScript references are V61-cache-busted.
+- Manifest, canonical launch file and 404 fallback all point to `vi-v61.html`.
 
-`https://phillipdevilliers19-cell.github.io/vesco-intelligence/vi-v60.html`
+## First test
+After GitHub Pages finishes deploying, open the exact page ending in `/vi-v61.html`. For a repository named `vesco-intelligence`:
 
-Confirm that this page visibly shows the V60 application. Only then use Safari → Share → Add to Home Screen from that exact page.
+`https://phillipdevilliers19-cell.github.io/vesco-intelligence/vi-v61.html`
 
-## Why this release is different
-- No hard-coded `/test/` paths.
-- The manifest uses relative `id`, `start_url`, and `scope`.
-- The Home Screen entry point has a unique filename: `vi-v60.html`.
-- The 404 fallback redirects to the same relative launch page.
-- CSS and JavaScript references are V60-cache-busted.
+Test the bottom navigation, theme toggle and Backup button in Safari first. Only after these work should the page be added to the iPhone Home Screen.
 
 ## Data
-Application data remains browser-local in this release. Use Backup / Restore when moving data between devices.
-V60 deployment test
+Application data remains browser-local in this release. Use Backup / Restore when moving data between browsers or devices.

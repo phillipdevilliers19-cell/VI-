@@ -12,7 +12,7 @@ const KNOWLEDGE = [
   {title:"Marine Applications",type:"Official",desc:"Marine bearing applications, material comparison and case studies.",url:"https://www.vesconite.com/industry/marine/"},
   {title:"Hydro Case Studies",type:"Official",desc:"Hydro bearing applications and performance information.",url:"https://www.vesconite.com/hydro/case-studies/"}
 ];
-// V60 Core bridge: global header/theme controls are isolated in core.js.
+// V61 Core bridge: global header/theme controls are isolated in core.js.
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
 const getApps=()=>{try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]")}catch{return[]}};

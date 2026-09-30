@@ -741,3 +741,104 @@ body:not(.dark-theme) .link-thumb{background:#edf2f4!important}
 body:not(.dark-theme) .portfolio-strip{background:#f0f8f6!important;border-color:#cce9e2!important}
 body:not(.dark-theme) .bottom-nav{background:rgba(255,255,255,.96)!important;border-color:var(--line)!important}
 body:not(.dark-theme) .oem-reference-card:hover{border-color:#a8cbc3!important}
+
+/* V61 — authoritative mobile header/control and logo treatment */
+.topbar{
+  position:fixed !important;
+  top:0 !important;
+  left:0 !important;
+  right:0 !important;
+  width:100% !important;
+  max-width:none !important;
+  height:92px !important;
+  min-height:92px !important;
+  padding:0 18px !important;
+  margin:0 !important;
+  background:#fff !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+  filter:none !important;
+  transform:none !important;
+  overflow:visible !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.app-shell{padding-top:92px !important}
+.ava-home-logo{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  width:170px !important;
+  height:66px !important;
+  padding:0 !important;
+  margin:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:transparent !important;
+  border:0 !important;
+  filter:none !important;
+  overflow:visible !important;
+}
+.ava-home-logo img{
+  width:150px !important;
+  height:62px !important;
+  max-width:none !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  display:block !important;
+  opacity:1 !important;
+  filter:none !important;
+  transform:none !important;
+  image-rendering:auto !important;
+}
+.topbar-actions{
+  position:absolute !important;
+  right:18px !important;
+  top:50% !important;
+  transform:translateY(-50%) !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  z-index:1004 !important;
+}
+.topbar-actions .icon-btn{
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  min-height:42px !important;
+  padding:0 !important;
+  margin:0 !important;
+  display:grid !important;
+  place-items:center !important;
+  position:relative !important;
+  top:auto !important;
+  right:auto !important;
+  transform:none !important;
+  filter:none !important;
+  -webkit-filter:none !important;
+}
+@media(max-width:760px){
+  .topbar{
+    height:calc(92px + env(safe-area-inset-top)) !important;
+    min-height:calc(92px + env(safe-area-inset-top)) !important;
+    padding:env(safe-area-inset-top) 12px 0 !important;
+    align-items:flex-start !important;
+  }
+  .app-shell{padding-top:calc(92px + env(safe-area-inset-top)) !important}
+  .ava-home-logo{
+    top:calc(env(safe-area-inset-top) + 46px) !important;
+    width:170px !important;
+    height:66px !important;
+  }
+  .ava-home-logo img{width:150px !important;height:62px !important}
+  .topbar-actions{
+    right:12px !important;
+    top:calc(env(safe-area-inset-top) + 46px) !important;
+    transform:translateY(-50%) !important;
+    gap:6px !important;
+  }
+  .topbar-actions .icon-btn{width:40px !important;height:40px !important;min-width:40px !important;min-height:40px !important}
+}

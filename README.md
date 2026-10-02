@@ -1,52 +1,32 @@
-# Vesco Intelligence (VI) Internal — V67
+# Vesco Intelligence (VI) Internal — V70
 
-## V67 — consolidated application stability fix
+## Release
+V70 is the consolidated repair release for the application workflow. Upload the contents directly into the root of the GitHub Pages `main` branch.
 
-This release consolidates the current application/navigation/photo/modal regressions into one controlled build.
+## V70 repairs
+- Restores reliable **Edit record** behaviour by removing hidden modal interception and using direct application action handlers.
+- Edit Application retains explicit native **Take photo** and **Choose photos** controls.
+- Customer portfolio builder opens from an application and reaches the Preview & Edit stage.
+- Customer View starts below the fixed mobile header and includes a **Share PDF** action.
+- QR Code action is retained and no longer depends on an optional QR level enum.
+- Compare feature removed from the application interface.
+- Library and application story text is dark/readable in light mode.
+- Header logo is centered and slightly reduced; theme and backup controls remain in the lower header area.
 
-### Fixed in V67
-- **Library:** explicitly re-renders whenever the Library page opens, so records do not disappear after direct navigation.
-- **Discover:** uses the same application store as Library and refreshes when application data changes.
-- **Edit photos:** uses native iPhone controls for **Take photo** and **Choose photos**. Photos can be added repeatedly up to 10, previewed, captioned, removed and saved to the same application.
-- **Customer View:** moved above the sticky header with safe-area spacing; application headings are no longer hidden behind the VI header.
-- **QR Code:** modal now sits above the header. QR generation has a library path plus an online image fallback and always exposes the application URL.
-- **Header controls:** theme and Backup/Export are anchored to the bottom of the header, below the iPhone status/safe-area region. The header no longer uses backdrop blur, so the VI logo is not blurred.
-- **Application save:** refreshes Library, Discover and Visualiser immediately.
+## QA acceptance path
+1. Library → open application → Edit record.
+2. Edit record → Take photo / Choose photos → confirm preview → Save → reopen.
+3. Application → Build Customer Portfolio → select application → Preview Portfolio.
+4. Application → Customer View → title fully visible below header → Share PDF.
+5. Application → QR Code → QR visible and URL shown.
+6. Toggle light/dark → inspect application story cards for readability.
+7. Confirm Compare is absent.
 
-### Fresh repository upload
-Upload the contents of this package directly into the **root** of the `main` branch. Do not place the files in a subfolder.
+## QA status
+V70 was reviewed against Library, Discover, application detail, edit workflow, photo controls, Customer View, portfolio builder, QR, theme switching, fixed header/footer spacing, and document preview/share paths. Physical iPhone camera/share-sheet behaviour still requires device testing.
 
-Expected root files: `index.html`, `vi-v67.html`, `manifest.json`, `app.js`, `core.js`, `style.css`, `404.html`, `README.md` plus the image/icon assets.
+## Storage
+Application data is stored in browser localStorage. This is not yet a shared multi-user backend.
 
-Enable GitHub Pages with **Settings → Pages → Deploy from a branch → main → /(root)**.
-
-### Verification sequence
-1. Open the GitHub Pages URL in Safari.
-2. Click **Library** directly and verify existing application records are visible.
-3. Open an application → **Edit record** → **Take photo** or **Choose photos** → verify the photo preview → **Save Record** → reopen the application.
-4. Open **Customer View** and verify the title is fully visible.
-5. Open **QR Code** and verify the QR/link modal.
-6. Toggle light/dark and verify the controls remain below the status area.
-7. Open **Discover** and verify the same application appears in the reels feed.
-
-
-### Important stability correction
-The application-save path now treats localStorage as the source of truth and isolates UI refresh errors, so a visualiser/rendering fault cannot make a successfully stored application appear unsaved.
-
-
-## V67 verification / regression corrections
-- Restored the original centred VI header-logo positioning; no logo repositioning change is made in this release.
-- Library application actions use one delegated click path, so Edit record, Customer View, Compare, QR Code, portfolio and delete actions are not dependent on inline handlers in dynamically rendered cards.
-- Edit Application photo controls use native iPhone `<label for=file>` activation for Take photo and Choose photos.
-- Customer View is laid out below the fixed header/safe-area and has its own scrollable viewport.
-- Library light-theme application name, description and metadata use explicit dark colours.
-- V67 keeps the same application storage keys and data format.
-
-### V67 test order
-1. Open the normal GitHub Pages URL.
-2. Library → open application → Edit record.
-3. Confirm edit form opens, then test Take photo / Choose photos.
-4. Cancel or save the edit and reopen the application.
-5. Test Customer View and QR Code.
-6. Toggle light/dark mode.
-7. Check Discover and bottom navigation.
+## Root files
+Expected production files in repository root: `index.html`, `vi-v70.html`, `app.js`, `core.js`, `style.css`, `manifest.json`, icons and image assets. Do not upload the ZIP file itself into the repository root.

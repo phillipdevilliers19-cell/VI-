@@ -1,4 +1,4 @@
-/* VI Core v67 — dependency-free global controls */
+/* VI Core v70 — dependency-free global controls */
 (function(){
  const KEY='ava_internal_theme_v1';
  function apply(theme){const dark=theme==='dark';document.documentElement.dataset.theme=dark?'dark':'light';document.body.classList.toggle('dark-theme',dark);const b=document.getElementById('themeToggle');if(b){b.textContent=dark?'☀':'☾';b.title=dark?'Switch to light theme':'Switch to dark theme';b.setAttribute('aria-label',b.title);b.setAttribute('aria-pressed',String(dark))}const m=document.getElementById('themeColorMeta');if(m)m.content=dark?'#071018':'#ffffff'}
@@ -6,7 +6,7 @@
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
 
-/* VI v66 — single global navigation bridge */
+/* VI v70 — single global navigation bridge */
 (function(){
   function closeMore(){
     const m=document.getElementById('moreMenu');
